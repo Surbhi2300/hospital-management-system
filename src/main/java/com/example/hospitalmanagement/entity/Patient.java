@@ -12,6 +12,7 @@ public class Patient {
     private String name;
     private int age;
     private String disease;
+    private String ward;
 
     public Patient() {
     }
@@ -46,5 +47,13 @@ public class Patient {
 
     public void setDisease(String disease) {
         this.disease = disease;
+    }
+
+    public String getWard() {
+        return ward;
+    }
+
+    public void setWard(String ward) {
+        this.ward = ward;
     }
 }

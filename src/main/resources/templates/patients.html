@@ -41,6 +41,18 @@
                 <input type="text" name="disease" class="form-control" required>
             </div>
 
+            <div class="mb-3">
+                <label class="form-label">Ward</label>
+
+                <select name="ward" class="form-control">
+
+                    <option value="ICU">ICU</option>
+                    <option value="General">General</option>
+                    <option value="Emergency">Emergency</option>
+
+                </select>
+            </div>
+
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">
                     Save Patient
@@ -63,6 +75,7 @@
                     <th>Name</th>
                     <th>Age</th>
                     <th>Disease</th>
+                    <th>Ward</th>
                 </tr>
             </thead>
 
@@ -74,6 +87,7 @@
                     <td th:text="${patient.name}"></td>
                     <td th:text="${patient.age}"></td>
                     <td th:text="${patient.disease}"></td>
+                    <td th:text="${patient.ward}"></td>
 
                 </tr>
 
