@@ -19,6 +19,14 @@
             Hospital Management System
         </h1>
 
+        <!-- Error Popup -->
+
+        <div th:if="${error}" class="alert alert-danger text-center">
+
+            <span th:text="${error}"></span>
+
+        </div>
+
         <form action="/savePatient" method="post">
 
             <div class="mb-3">
