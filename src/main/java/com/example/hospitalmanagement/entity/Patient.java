@@ -9,32 +9,36 @@ import jakarta.persistence.Id;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String number;
     private String wardName;
+    private String number;
 
-    public Patient(){}
+    public Patient() {
+    }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public String getNumber(){
-        return number;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setNumber(String number){
-        this.number=number;
-    }
-
-    public String getWardName(){
+    public String getWardName() {
         return wardName;
     }
 
-    public void setWardName(String wardName){
-        this.wardName=wardName;
+    public void setWardName(String wardName) {
+        this.wardName = wardName;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }
