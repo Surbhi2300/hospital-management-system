@@ -1,44 +1,50 @@
 package com.example.hospitalmanagement.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private String wardName;
-    private String number;
+    private String name;
+    private int age;
+    private String disease;
 
     public Patient() {
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getWardName() {
-        return wardName;
+    public String getName() {
+        return name;
     }
 
-    public void setWardName(String wardName) {
-        this.wardName = wardName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNumber() {
-        return number;
+    public int getAge() {
+        return age;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getDisease() {
+        return disease;
+    }
+
+    public void setDisease(String disease) {
+        this.disease = disease;
     }
 }
