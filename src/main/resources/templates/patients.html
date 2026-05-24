@@ -65,6 +65,42 @@
 
     <div class="card shadow-lg p-4 mt-5">
 
+        <h2 class="text-center mb-4">Ward Status</h2>
+
+        <table class="table table-bordered">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Ward</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>ICU</td>
+                    <td th:text="${icuStatus}"></td>
+                </tr>
+
+                <tr>
+                    <td>General</td>
+                    <td th:text="${generalStatus}"></td>
+                </tr>
+
+                <tr>
+                    <td>Emergency</td>
+                    <td th:text="${emergencyStatus}"></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="card shadow-lg p-4 mt-5">
+
         <h2 class="text-center mb-4">Patient Records</h2>
 
         <table class="table table-bordered table-hover">

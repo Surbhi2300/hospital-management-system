@@ -1,5 +1,7 @@
 package com.example.hospitalmanagement.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,32 @@ public class PatientController {
     @GetMapping("/patients")
     public String patientsPage(Model model) {
 
-        model.addAttribute("patients", repository.findAll());
+        List<Patient> patients = repository.findAll();
+
+        model.addAttribute("patients", patients);
+
+        String icuStatus = "Empty";
+        String generalStatus = "Empty";
+        String emergencyStatus = "Empty";
+
+        for (Patient patient : patients) {
+
+            if (patient.getWard().equals("ICU")) {
+                icuStatus = "Occupied";
+            }
+
+            if (patient.getWard().equals("General")) {
+                generalStatus = "Occupied";
+            }
+
+            if (patient.getWard().equals("Emergency")) {
+                emergencyStatus = "Occupied";
+            }
+        }
+
+        model.addAttribute("icuStatus", icuStatus);
+        model.addAttribute("generalStatus", generalStatus);
+        model.addAttribute("emergencyStatus", emergencyStatus);
 
         return "patients";
     }
