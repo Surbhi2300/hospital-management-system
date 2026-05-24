@@ -57,10 +57,45 @@ public class PatientController {
     }
 
     @PostMapping("/savePatient")
-    public String savePatient(@ModelAttribute Patient patient) {
+public String savePatient(@ModelAttribute Patient patient) {
 
-        repository.save(patient);
+    List<Patient> patients = repository.findAll();
 
+    int icuCount = 0;
+    int generalCount = 0;
+    int emergencyCount = 0;
+
+    for (Patient p : patients) {
+
+        if (p.getWard().equals("ICU")) {
+            icuCount++;
+        }
+
+        if (p.getWard().equals("General")) {
+            generalCount++;
+        }
+
+        if (p.getWard().equals("Emergency")) {
+            emergencyCount++;
+        }
+    }
+
+    // Increased capacities
+
+    if (patient.getWard().equals("ICU") && icuCount >= 5) {
         return "redirect:/patients";
     }
+
+    if (patient.getWard().equals("General") && generalCount >= 10) {
+        return "redirect:/patients";
+    }
+
+    if (patient.getWard().equals("Emergency") && emergencyCount >= 3) {
+        return "redirect:/patients";
+    }
+
+    repository.save(patient);
+
+    return "redirect:/patients";
+}
 }
