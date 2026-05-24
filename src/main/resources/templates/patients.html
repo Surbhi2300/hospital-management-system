@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 
     <title>Hospital Management</title>
@@ -47,6 +48,38 @@
             </div>
 
         </form>
+
+    </div>
+
+    <div class="card shadow-lg p-4 mt-5">
+
+        <h2 class="text-center mb-4">Patient Records</h2>
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Disease</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr th:each="patient : ${patients}">
+
+                    <td th:text="${patient.id}"></td>
+                    <td th:text="${patient.name}"></td>
+                    <td th:text="${patient.age}"></td>
+                    <td th:text="${patient.disease}"></td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
 
     </div>
 
