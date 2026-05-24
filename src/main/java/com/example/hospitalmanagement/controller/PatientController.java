@@ -33,24 +33,47 @@ public class PatientController {
 
         model.addAttribute("patients", patients);
 
-        String icuStatus = "Empty";
-        String generalStatus = "Empty";
-        String emergencyStatus = "Empty";
+        int icuCount = 0;
+        int generalCount = 0;
+        int emergencyCount = 0;
 
         for (Patient patient : patients) {
 
             if (patient.getWard().equals("ICU")) {
-                icuStatus = "Occupied";
+                icuCount++;
             }
 
             if (patient.getWard().equals("General")) {
-                generalStatus = "Occupied";
+                generalCount++;
             }
 
             if (patient.getWard().equals("Emergency")) {
-                emergencyStatus = "Occupied";
+                emergencyCount++;
             }
         }
+
+        // Professional Occupancy Status
+
+        String icuStatus =
+                (icuCount == 0)
+                ? "Empty"
+                : (icuCount == 5)
+                ? "FULL"
+                : icuCount + " / 5 Beds Occupied";
+
+        String generalStatus =
+                (generalCount == 0)
+                ? "Empty"
+                : (generalCount == 10)
+                ? "FULL"
+                : generalCount + " / 10 Beds Occupied";
+
+        String emergencyStatus =
+                (emergencyCount == 0)
+                ? "Empty"
+                : (emergencyCount == 3)
+                ? "FULL"
+                : emergencyCount + " / 3 Beds Occupied";
 
         model.addAttribute("icuStatus", icuStatus);
         model.addAttribute("generalStatus", generalStatus);
